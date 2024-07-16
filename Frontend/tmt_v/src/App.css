@@ -1,0 +1,41 @@
+.SignIn {
+    background-image: url(./backgroundImage.png);
+    height: 300px;
+}
+
+.head {
+    background-image: url(./backgroundImage.png);
+    height: 300px;
+}
+
+@media screen and (max-width: 990px) {
+    .SignIn {
+        background-image: none;
+        background-color: aliceblue;
+        height: 100%;
+    }
+    .head {
+        background-image: none;
+        background-color: aliceblue;
+        height: 100%;
+    }
+}
+
+.cardCSS {
+    margin-top: -100px;
+    backdrop-filter: blur(30px);
+}
+
+.show-password {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    align-items: center;
+    border-radius: 10px;
+    gap: 5px;
+}
+
+.show-password img {
+    width: 25px;
+    cursor: pointer;
+}
