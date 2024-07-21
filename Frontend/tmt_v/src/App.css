@@ -8,16 +8,26 @@
     height: 300px;
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 980px) {
     .SignIn {
         background-image: none;
-        background-color: aliceblue;
+        background-color: rgb(255, 255, 255);
         height: 100%;
     }
     .head {
         background-image: none;
-        background-color: aliceblue;
+        background-color: rgb(255, 255, 255);
         height: 100%;
+    }
+    .terms {
+        top: -30px;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    .terms {
+        top: -380px;
     }
 }
 
@@ -38,4 +48,35 @@
 .show-password img {
     width: 25px;
     cursor: pointer;
+}
+
+.learn {
+    cursor: pointer;
+    color: rgb(64, 64, 245);
+    text-decoration: underline;
+}
+
+.terms {
+    display: none;
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-850px);
+    border-radius: 15px;
+    border: 0.5px solid black;
+    margin-bottom: 0px;
+    bottom: 0;
+    z-index: 5;
+}
+
+.titleTerms {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.titleTerms i {
+    position: absolute;
+    left: 96%;
 }

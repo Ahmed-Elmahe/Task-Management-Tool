@@ -14,30 +14,40 @@ function SignUpForm() {
   const [address1, setAddress1] = useState("");
   const [address2, setAddress2] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
+  const [agree, setAgree] = useState(true);
 
   const history = useNavigate();
 
   var passwordShow1 = document.getElementById('passwordFild1');
   var passwordShow2 = document.getElementById('passwordFild2');
+  
 
-    function show1() {
-        if(passwordShow1.type === "password") {
-            passwordShow1.type = "text";
-            document.getElementById('eyeClose1').src = eyeOpen;
-        } else {
-            passwordShow1.type = "password";
-            document.getElementById('eyeClose1').src = eyeClose;
-        }
-    }
-
-    function show2() {
-      if(passwordShow2.type === "password") {
-          passwordShow2.type = "text";
-          document.getElementById('eyeClose2').src = eyeOpen;
+  function show1() {
+      if(passwordShow1.type === "password") {
+          passwordShow1.type = "text";
+          document.getElementById('eyeClose1').src = eyeOpen;
       } else {
-          passwordShow2.type = "password";
-          document.getElementById('eyeClose2').src = eyeClose;
+          passwordShow1.type = "password";
+          document.getElementById('eyeClose1').src = eyeClose;
       }
+  }
+
+  function show2() {
+    if(passwordShow2.type === "password") {
+        passwordShow2.type = "text";
+        document.getElementById('eyeClose2').src = eyeOpen;
+    } else {
+        passwordShow2.type = "password";
+        document.getElementById('eyeClose2').src = eyeClose;
+    }
+  }
+
+  function closeTermsBtnF() {
+    document.getElementById("termsList").style.display = "none";
+  }
+
+  function learnTermsLink() {
+    document.getElementById("termsList").style.display = "block";
   }
 
   async function submit(e) {
@@ -60,9 +70,9 @@ function SignUpForm() {
 
 
   return (
-    <section className="text-center">
-      <div className="p-5 bg-image head"></div>
-      <div className='container py-5 h-100'>
+    <section style={{position: "relative"}}>
+      <div className="p-5 bg-image head main "></div>
+      <div className='container text-center py-5 h-100'>
         <div className="card mx-4 mx-md-5 shadow-5-strong cardCSS">
           <div className="card-body py-5 px-md-5">
             <div className="row d-flex justify-content-center">
@@ -143,8 +153,8 @@ function SignUpForm() {
 
                   
                   <div className="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-1" type="checkbox" value="" id="flexCheckDefault" />
-                    <label class="form-check-label" for="flexCheckDefault"> Default checkbox</label>
+                    <input class="form-check-input me-1" type="checkbox" value={agree} id="flexCheckDefault" />
+                    <label class="form-check-label" for="flexCheckDefault"> Do you agree to the terms <span className='learn' onClick={learnTermsLink}><b>Learn more</b></span></label>
                   </div> 
                   <button type="submit" className="btn btn-primary mb-4" onClick={submit}>Sign up</button>
                 </form>
@@ -155,7 +165,87 @@ function SignUpForm() {
             </div>
           </div>
         </div>
-      </div>    
+      </div>
+      <div className='terms card container' id='termsList'>
+           <div className='titleTerms'>
+            <h3>Terms</h3>
+            <i class="fa-solid fa-circle-xmark" onClick={closeTermsBtnF} style={{cursor: "pointer"}}></i>
+           </div>
+           <div className='contantTerms'>
+            <ol className='ruleList mt-5'>
+              <li>
+                <h5>Introduction</h5>
+                <p>Welcome to TMT. By signing up, you agree to comply with and be bound by the following terms and conditions. Please review them carefully.</p>
+              </li>
+              <li>
+                <h5>Eligibility</h5>
+                <ul>
+                  <li>You must be at least 12 years old to use our services.</li>
+                  <li>By using our services, you represent and warrant that you have the right, authority, and capacity to enter into this agreement and abide by all the terms and conditions.</li>
+                </ul>
+              </li>
+              <li>
+                <h5>Account Registration</h5>
+                <ul>
+                  <li>You must provide accurate and complete information during the registration process.</li>
+                  <li>You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.</li>
+                  <li>Notify us immediately of any unauthorized use of your account.</li>
+                </ul>
+              </li>
+              <li>
+                <h5>User Conduct</h5>
+                <ul>
+                  <li>You agree to use the service only for lawful purposes.</li>
+                  <li>You must not use the service to transmit any content that is illegal, harmful, or infringes on the rights of others.</li>
+                </ul>
+              </li>
+              <li>
+                <h5>Privacy Policy</h5>
+                <p>Your registration and use of our services are governed by our Privacy Policy, which is incorporated into these terms by reference.</p>
+              </li>
+              <li>
+                <h5>Subscription and Fees</h5>
+                <ul>
+                  <li>Certain features of the service may require payment of fees. You agree to pay all applicable fees as described on our website.</li>
+                  <li>We reserve the right to change our fees at any time.</li>
+                </ul>
+              </li>
+              <li>
+                <h5>Cancellation and Termination</h5>
+                <ul>
+                  <li>You can cancel your account at any time. Upon cancellation, you will no longer have access to the service.</li>
+                  <li>We reserve the right to suspend or terminate your account if you violate these terms.</li>
+                </ul>
+              </li>
+              <li>
+                <h5>Intellectual Property</h5>
+                <ul>
+                  <li>All content and materials provided through the service are the intellectual property of TMT or its licensors.</li>
+                  <li>You may not use any of our intellectual property without our prior written consent.</li>
+                </ul>
+              </li>
+              <li>
+                <h5>Limitation of Liability</h5>
+                <p>TMT will not be liable for any indirect, incidental, or consequential damages arising out of your use of the service.</p>
+              </li>
+              <li>
+                <h5>Changes to Terms</h5>
+                <ul>
+                  <li>We reserve the right to modify these terms at any time. We will notify you of any changes by posting the new terms on our website.</li>
+                  <li>Your continued use of the service after such changes will constitute your acceptance of the new terms.</li>
+                </ul>
+              </li>
+              <li>
+                <h5>Governing Law</h5>
+                <p>These terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law principles.</p>
+              </li>
+              <li>
+                <h5>Contact Information</h5>
+                <p>If you have any questions about these terms, please contact us at <Link to={'/contact'}>Conduct</Link></p>
+              </li>
+            </ol>
+           </div>
+      </div>   
     </section>
   );
 }

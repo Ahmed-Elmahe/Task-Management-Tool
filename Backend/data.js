@@ -8,7 +8,7 @@ app.use(cors());
 
 //Import Mogodb Database and concted with it
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/Task_Management_Tool').then(()=> console.log('Database has been contacted'));
+mongoose.connect('mongodb+srv://officialelmahe:<password>@tmt.vbambgh.mongodb.net/?retryWrites=true&w=majority&appName=TMT').then(()=> console.log('Database has been contacted'));
 
 //Import HTTP verbs
 const methodOverride = require('method-override');
